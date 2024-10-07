@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio Website</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/6377b6f39f.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+<div id="header">
+    <div class="container">
+        <nav>
+            <h1>CHARITY</h1>
+            <ul id="sidemenu">
+                <li><a href="#header">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <i class="fas fa-times" onclick="closemenu()"></i>
+            </ul>
+            <i class="fas fa-bars" onclick="openmenu()"></i>
+        </nav>
+        <div class="header-text">
+            <p>Web Developer</p>
+            <h1>Hi, I'm <span>Charity</span><br>And I'm a <span>Frontend Developer</span></h1>
+        
+
+        </div>
+    </div>
+</div>
+<!-- -----------about---------- -->
+<div id="about">
+    <div class="container">
+        <div class="row">
+            <div class="about-col-1">
+                <img src="images/user.png">
+            </div>
+            <div class="about-col-2">
+                <h1 class="sub-title">About Me</h1>
+                <p>Hello!I'm Charity,a passionate front-end developer with a keen interest in crafting beautiful and functional web experiences.With a solid foundation interest in HTML,CSS and JavaScript.I am enthusiastic about creating user friendly interfaces that leave a lasting impression. </p>
+
+                <div class="tab-titles">
+                    <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                    <p class="tab-links" onclick="opentab('experience')">Experience</p>
+                    <p class="tab-links" onclick="opentab('education')">Education</p>
+                </div>
+                <div class="tab-contents active-tab" id="skills">
+                    <ul>
+                        <li><span>FrontEnd Technology</span><br>HTML, CSS and JavaScript</li>
+                        <li><span>DataBase</span><br>SQL, MySql</li>
+                        <li><span>Soft Skills</span><br>Communication, Logical Thinking, Problem Solving, Collaborative</li>
+
+                    </ul>
+                    <input type="text" id="new-experience" placeholder="Add new experience">
+                    <button onclick="addItem('experience')">Add Experience</button>
+                </div>
+                <div class="tab-contents" id="experience">
+                    <input type="text" id="new-experience" placeholder="Add new experience">
+                    <button onclick="addItem('experience')">Add Experience</button>
+                </div>
+                <div class="tab-contents" id="education">
+                    <ul>
+                        <li><span>Bachelor of Mathematical and Computer Sciences</span><br>2024-current<br>University of Limpopo</li>
+                    </ul>
+                    <input type="text" id="new-education" placeholder="Add new education">
+    <button onclick="addItem('education')">Add Education</button>
+                </div>
+                
+        </div>
+    </div>
+</div>
+<!-- ---------services---------------- -->
+<div id="projects">
+    <div class="container">
+        <h1 class="sub-title">Projects</h1>
+        <div class="services-list">
+            <div>
+                <i class="fa-solid fa-user-tie"></i>
+                <h2>Responsive Portfolio Website</h2>
+                <p>Demonstrated proficiency in developing a responsive portfolio website using HTML, CSS, and JavaScript, ensuring seamless user experience across various devices and screen sizes. Successfully integrated interactive elements such as navigation menus, image galleries, and contact forms using JavaScript to enhance user engagement and functionality of the portfolio.</p>
+                <a href="#">Learn more</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ----------portfolio------------ -->
+<div id="portfolio">
+    <div class="container">
+        <h1 class="sub-title">My Work</h1>
+            <div class="work">
+                <img src="images/work-3.png">
+                <div class="layer">
+                    <h3>My Portfolio</h3>
+                    <p>This portfolio describes my academic and professional materials that exemplifies my skills, qualifications, education, training, and experiences.</p>
+                    <a href="#"><i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+        </div>
+        <a href="#" class="btn">See more</a>
+    </div>
+</div>
+<!-- ----------contact------------- -->
+<div id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="contact-left">
+                <h1 class="sub-title">Contact Me</h1>
+                <p><i class="fas fa-paper-plane"></i>charitysetati@gmail.com</p>
+                <p><i class="fas fa-phone-square-alt"></i>078-130-7502</p>
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/charity-setati-7459292b9/" target="_blank"> <i class="fa-brands fa-linkedin"></i></a>
+                  <a href="https://github.com/Charity-web-maker" target="_blank"> <i class="fa-brands fa-github"></i></a>
+                  <a href="https://www.instagram.com/charity_setati/" target="_blank"> <i class="fa-brands fa-instagram"></i></a>
+                </div>
+                <a href="#" download class="btn btn2">Download CV</a>
+            </div>
+            <div class="contact-right">
+                <form name="submit-to-google-sheet">
+                    <input type="text" name="Name" placeholder="Your Name" required>
+                    <input type="email" name="Email" placeholder="Your Email" required>
+                    <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                    <button type="submit" class="btn btn2">Submit</button>
+                </form>
+                <span id="msg"></span>
+            </div>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>Copyright © 2024 by Charity<i class="fas fa-heart"></i></p>
+    </div>
+</div>
+
+
+
+<script>
+
+    var tablinks = document.getElementsByClassName("tab-links");
+    var tabcontents = document.getElementsByClassName("tab-contents");
+
+    function opentab(tabname){
+        for(tablink of tablinks){
+            tablink.classList.remove("active-link");
+        }
+        for(tabcontent of tabcontents){
+            tabcontent.classList.remove("active-tab");
+        }
+        event.currentTarget.classList.add("active-link");
+        document.getElementById(tabname).classList.add("active-tab");
+    }
+
+</script>
+<script>function addItem(type) {
+    let itemValue;
+    let listId;
+
+    if (type === 'skills') {
+        itemValue = document.getElementById("new-skill").value.trim();
+        listId = 'skills-list';
+    } else if (type === 'experience') {
+        itemValue = document.getElementById("new-experience").value.trim();
+        listId = 'experience-list';
+    } else if (type === 'education') {
+        itemValue = document.getElementById("new-education").value.trim();
+        listId = 'education-list';
+    }
+
+    if (itemValue) {
+        const newListItem = document.createElement("li");
+        newListItem.innerHTML = `
+            <span>${itemValue}</span>
+            <button onclick="deleteItem(this)">Delete</button>`;
+        document.getElementById(listId).appendChild(newListItem);
+        
+        // Clear the input field after adding
+        document.getElementById(`new-${type}`).value = "";
+    } else {
+        alert("Please enter a value.");
+    }
+}
+
+function deleteItem(button) {
+    const listItem = button.parentNode;
+    listItem.parentNode.removeChild(listItem);
+}
+</script>
+
+<script>
+
+    var sidemeu = document.getElementById("sidemenu");
+
+    function openmenu(){
+        sidemeu.style.right = "0";
+    }
+    function closemenu(){
+        sidemeu.style.right = "-200px";
+    }
+
+</script>
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbyLZhyjFwwfEW2GBxd1Qjnn5IjjHbxgoZ89S4RyNlwb-6FBXKgrqRTT5W0t9_YWNtN8/exec' // add your own app script link here
+    const form = document.forms['submit-to-google-sheet']
+    const msg = document.getElementById("msg")
+  
+  </script>
+</body>
+</html>
